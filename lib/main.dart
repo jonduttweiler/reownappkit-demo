@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
+      theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -33,7 +34,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => CryptoController(),
-
       child: Consumer<CryptoController>(
         builder: (context, cryptoController, child) {
           return Scaffold(
@@ -48,11 +48,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     child: Text("Connect"),
                   ),
-
                   SizedBox(height: 20),
                   if (cryptoController.connectedAddress != null)
-                    Text("Connected address: ${cryptoController.connectedAddress}",
-                    textAlign: TextAlign.center,),
+                    Text(
+                      "Connected address: ${cryptoController.connectedAddress}",
+                      textAlign: TextAlign.center,
+                    ),
                 ],
               ),
             ),
